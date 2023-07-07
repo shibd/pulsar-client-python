@@ -615,9 +615,11 @@ class Client:
         crypto_key_reader: CryptoKeyReader, optional
             Symmetric encryption class implementation, configuring public key encryption messages for the producer
             and private key decryption messages for the consumer
-        access_mode: ProducerAccessMode, default=ProducerAccessMode.Shared
+        access_mode: ProducerAccessMode, optional
             Set the type of access mode that the producer requires on the topic.
+
             Supported modes:
+
             * Shared: By default multiple producers can publish on a topic.
             * Exclusive: Require exclusive access for producer.
                          Fail immediately if there's already a producer connected.
