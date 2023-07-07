@@ -36,8 +36,8 @@ jobs:
         with:
           python-version: 3.x
       - name: Install deps
-        run: pip install -U pydoctor 2
-      - name: Check docs syntax
+        run: pip install -U pydoctor 
+      - name: Check docs syntax 2
         run: |
           pydoctor --make-html \
             --html-viewsource-base=https://github.com/apache/pulsar-client-python/tree/main \
