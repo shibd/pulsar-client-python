@@ -646,6 +646,7 @@ class Client:
         _check_type_or_none(str, encryption_key, 'encryption_key')
         _check_type_or_none(CryptoKeyReader, crypto_key_reader, 'crypto_key_reader')
         _check_type(bool, lazy_start_partitioned_producers, 'lazy_start_partitioned_producers')
+        _check_type(ProducerAccessMode, access_mode, 'access_mode')
 
         conf = _pulsar.ProducerConfiguration()
         conf.send_timeout_millis(send_timeout_millis)
