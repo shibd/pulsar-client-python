@@ -170,9 +170,9 @@ class PulsarTest(TestCase):
     def test_producer_access_mode_exclusive(self):
         client = Client(self.serviceUrl)
         topic_name = "test-access-mode-exclusive"
-        client.create_producer(topic_name, producer_name="p1", access_mode=pulsar.ProducerAccessMode.Exclusive)
+        client.create_producer(topic_name, producer_name="p1", access_mode=ProducerAccessMode.Exclusive)
         with self.assertRaises(pulsar.ProducerFenced):
-            client.create_producer(topic_name, producer_name="p2", access_mode=pulsar.ProducerAccessMode.Exclusive)
+            client.create_producer(topic_name, producer_name="p2", access_mode=ProducerAccessMode.Exclusive)
         client.close()
 
     def test_producer_access_mode_wait_exclusive(self):
@@ -181,7 +181,7 @@ class PulsarTest(TestCase):
         producer1 = client.create_producer(
             topic=topic_name,
             producer_name='p-1',
-            access_mode=pulsar.ProducerAccessMode.Exclusive
+            access_mode=ProducerAccessMode.Exclusive
         )
         assert producer1.producer_name() == 'p-1'
 
@@ -190,7 +190,7 @@ class PulsarTest(TestCase):
         producer2 = client.create_producer(
             topic=topic_name,
             producer_name='p-2',
-            access_mode=pulsar.ProducerAccessMode.WaitForExclusive
+            access_mode=ProducerAccessMode.WaitForExclusive
         )
         assert producer2.producer_name() == 'p-2'
 
@@ -204,14 +204,14 @@ class PulsarTest(TestCase):
         producer1 = client.create_producer(
             topic=topic_name,
             producer_name='p-1',
-            access_mode=pulsar.ProducerAccessMode.Exclusive
+            access_mode=ProducerAccessMode.Exclusive
         )
         assert producer1.producer_name() == 'p-1'
 
         producer2 = client.create_producer(
             topic=topic_name,
             producer_name='p-2',
-            access_mode=pulsar.ProducerAccessMode.ExclusiveWithFencing
+            access_mode=ProducerAccessMode.ExclusiveWithFencing
         )
         assert producer2.producer_name() == 'p-2'
 
