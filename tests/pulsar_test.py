@@ -216,6 +216,7 @@ class PulsarTest(TestCase):
         assert producer2.producer_name() == 'p-2'
 
         # producer1 will be fenced.
+        time.sleep(0.2)
         with self.assertRaises((pulsar.ProducerFenced, pulsar.AlreadyClosed)):
             producer1.send('test-msg'.encode('utf-8'))
 
