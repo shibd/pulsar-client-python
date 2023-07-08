@@ -220,7 +220,7 @@ class PulsarTest(TestCase):
             producer1.send('test-msg'.encode('utf-8'))
 
         producer2.close()
-        client.close()
+        # client.close()
 
     def test_producer_is_connected(self):
         client = Client(self.serviceUrl)
